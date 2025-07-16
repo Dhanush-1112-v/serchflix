@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SearchFlix 🎬</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <!-- Header -->
+  <header>
+    <div class="logo">🎬 SearchFlix</div>
+    <nav class="hamburger" onclick="toggleMenu()">☰</nav>
+  </header>
+
+  <!-- Top Navigation Links -->
+  <div class="top-bar">
+   <div class="top-links">
+  <span onclick="navigate('home')">Home</span>
+  <span onclick="navigate('tollywood')">Tollywood</span>
+  <span onclick="navigate('bollywood')">Bollywood</span>
+</div>
+
+  </div>
+<div class="category-buttons">
+  <button onclick="fetchCategory('horror')">Horror</button>
+  <button onclick="fetchCategory('thriller')">Thriller</button>
+  <button onclick="fetchCategory('comedy')">Comedy</button>
+  <button onclick="fetchCategory('crime')">Crime</button>
+</div>
+
+  <!-- Centered Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a movie...">
+    <button onclick="searchMovies()">Search</button>
+  </div>
+  
+
+  <!-- Section Title -->
+  <h2 id="sectionTitle" style="text-align: center; margin-top: 10px;">Trending Now</h2>
+
+  <!-- Random Movies -->
+  <section class="scrolling-movies" id="randomMovies"></section>
+
+  <!-- Search Results -->
+  <section id="movieResults" class="movie-container"></section>
+
+  <!-- Movie Modal -->
+  <div id="movieModal" class="modal hidden">
+    <div class="modal-content" id="modalContent">
+      <span class="close" onclick="closeModal()">×</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<script>function navigate(page) {
+  const currentPage = window.location.pathname;
+
+  if (page === "home") {
+    window.location.href = "index.html";
+  } else if (page === "tollywood") {
+    if (currentPage.includes("tollywood.html")) {
+      window.location.href = "index.html";
+    } else {
+      window.location.href = "tollywood.html";
+    }
+  } else if (page === "bollywood") {
+    if (currentPage.includes("bollywood.html")) {
+      window.location.href = "index.html";
+    } else {
+      window.location.href = "bollywood.html";
+    }
+  }
+}
+</script>
+</html>
